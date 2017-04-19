@@ -1,18 +1,17 @@
 body {
-      padding-top: 25px;
-      padding-bottom: 0px;
-      font-family: "PT Serif",Georgia,Times,Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif
-  }
-
-#post {
-      padding-left: 30px;
-      padding-right: 30px;
-  }
-#post p,li{
-      font-size: 14px;
-      line-height: 26px;;
+    padding-top: 25px;
+    padding-bottom: 0px;
+    font-family: "PT Serif",Georgia,Times,Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif
 }
 
+#post {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+#post p,li{
+    font-size: 14px;
+    line-height: 26px;;
+}
 
 .label {
     display: inline-block;
@@ -47,20 +46,20 @@ nav[data-toggle='toc'] {
 
 /* small screens */
 @media (max-width: 768px) {
-  /* override the Affix plugin so that the navigation isn't sticky */
-  nav.affix[data-toggle='toc'] {
-    position: static;
-  }
+    /* override the Affix plugin so that the navigation isn't sticky */
+    nav.affix[data-toggle='toc'] {
+        position: static;
+    }
 
-  /* PICK ONE */
-  /* don't expand nested items, which pushes down the rest of the page when navigating */
-  nav[data-toggle='toc'] .nav .active .nav {
-    display: none;
-  }
-  /* alternatively, if you *do* want the second-level navigation to be shown (as seen on this page on mobile), use this */
-  nav[data-toggle='toc'] .nav .nav {
-    display: block;
-  }
+    /* PICK ONE */
+    /* don't expand nested items, which pushes down the rest of the page when navigating */
+    nav[data-toggle='toc'] .nav .active .nav {
+        display: none;
+    }
+    /* alternatively, if you *do* want the second-level navigation to be shown (as seen on this page on mobile), use this */
+    nav[data-toggle='toc'] .nav .nav {
+        display: block;
+    }
 }
 .pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus{
 	background-color: #ed8143;
@@ -68,14 +67,14 @@ nav[data-toggle='toc'] {
 }
 
 .pagination>li>a, .pagination>li>span  {
-	color: #ed8143;	
+    color: #ed8143;	
 }
 ul li{  
-list-style-type:none; 
+    list-style-type: none; 
 }  
 .text-primary, .rss , .footer a ,.navbar-default .navbar-brand{
 	color: #ed8143;
 }
 .badge {
-   background-color: #888;
+    background-color: #888;
 }
