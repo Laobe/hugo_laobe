@@ -47,4 +47,4 @@ googleAnalytics='google analytics code'
 ```
 
 # License
-This theme is released under the [MIT License](https://github.com/leonhe/hugo_eiio/blob/master/LICENSE).
+This theme is released under the [MIT License](https://github.com/laobe/hugo-laobe/blob/master/LICENSE).
