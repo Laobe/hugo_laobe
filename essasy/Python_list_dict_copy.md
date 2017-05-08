@@ -271,9 +271,18 @@ b           # [4, 5, 6]
 ---
 python 的赋值，浅copy，深copy是对对象一层一层的深入copy。赋值只做了对象引用，没任何copy，浅copy只是对对象本身进行了copy，如果对象里面包含其他对象是引用，深copy是对对象的每一层都做了copy
 
-注意： 我们平时使用的list2 = list1[:], dict2 = dict(dict1)。 用这种pythonic的方法来对对象进行copy 达到的效果时什么呢。
+*注意： 我们平时使用的*
+```python
+list2 = list1[:]
+dict2 = dict(dict1)
+```
+用这种pythonic的方法来对对象进行copy 达到的效果时什么呢。
 从字面意思就能看出来，就是表层做了copy，深层还都是引用。
 
-所以我们在确认对象里面没有再包含list，dict的时候，我们尽量使用list2=list1[:],dict2=dict(dict1) 这种方法，这种方式最pythonic，而且也避免了导入copy包。如果有包含list,dict的时候，就要注意啦。视情况进行copy。
-
-
+所以我们在确认对象里面没有再包含list，dict的时候，我们尽量使用
+```python
+list2=list1[:]
+dict2=dict(dict1)
+```
+这种方法，这种方式最pythonic，而且也避免了导入copy包。
+*如果有包含list,dict的时候，就要注意啦。视情况进行copy。*
