@@ -1,0 +1,101 @@
+<html>
+    <head>
+
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+
+        <link href="./main.css" rel="stylesheet" type="text/css">
+        <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+        <link rel="shortcut icon" href="http://www.yinwang.org/images/Yc.jpg">
+
+        <title>机器学习与逻辑编程</title>
+
+    </head>
+
+    <body>
+        <script>
+            if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+            {
+               document.body.classList.add('mobile');
+            }
+        </script>
+
+
+        <div class="inner">
+<h2 id="graphdb语法初见">GraphDB语法初见</h2>
+<p>之前一直有在关注arangodb的开发进程，现在看到arangodb出了一份<a href="https://www.arangodb.com/2018/02/nosql-performance-benchmark-2018-mongodb-postgresql-orientdb-neo4j-arangodb/">各个图数据库的对比测试</a>。自己本来对图数据库也很感兴趣，在reddit上看到了<a href="">对这个测试的讨论</a>。自己本来对图数据库也很感兴趣，就想要参考这个测试自己来做一些深入的学习和研究。</p>
+<p>现在先对图数据库进行一些基本的了解和认知。</p>
+<h3 id="图数据库是什么">图数据库是什么</h3>
+<p>维基百科的定义是这样的：</p>
+<p>但是其实我们更关注的是工程上的应用了。图数据库核心是图模型</p>
+<p>另外，在实现Graph数据模型时候往往也会实现一些类似的数据模型，比如Document, Key-Value, RDF(RDF也是一个很新颖很有趣的模型，在互联网维度越来越广的领域会发挥越来越大的作用)。因为这几个模型在实现上相互关联的，所以在实际工程中这些模型也可以做了考虑的因素。</p>
+<h3 id="图数据库选择">图数据库选择</h3>
+<p>参考这个测试，加上自己平时对图数据库的关注。我选择了几个自己比较熟悉有相对主流的图数据库：</p>
+<ol type="1">
+<li>arangodb – 一直在关注的图数据库</li>
+<li>neo4j – 目前使用最广的图数据库</li>
+<li>orientdb – 很主流的数据库，并且跟titan很像</li>
+<li>agensgraph – 很好玩，完全基于postgre增加graph的功能</li>
+<li>mongodb – 本身其实不是图数据库，但是因为是很成熟的文档型数据库，并且引擎和数据查询语言都是自己定义和设计的，从中也可以学到很多文档数据库的知识。</li>
+</ol>
+<p><strong>其实还有一个titan也很热门，由于好几年没有更新了，所以就没有持续关注了。</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>GraphDB</th>
+<th>语言</th>
+<th>模型</th>
+<th>查询语言</th>
+<th>数据引擎</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>arangodb</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>neo4j</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>orientdb</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>agensgraph</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>mongodb</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><a href="http://www.opencypher.org">Cypher</a>: neo4j定义出来的一个想要成为图数据库标准的图模型描述语言，现在也比较受业界认可，除了neo4j之外，agensgraph也是在PostgreSQL是实现了cypher语法，另外也和databricks合作，将cypher在spark上集成了。</p>
+<p>下面这是在cypher官网截的一个cypher查询语句：</p>
+<pre><code>     MATCH (d:Database)-[:USES]-&gt;(Cypher)-[:QUERIES]-&gt;(:Model:Graph)
+     WHERE d.name IN [&#39;SAP HANA Graph&#39;,&#39;Redis&#39;,&#39;AgensGraph&#39;, &#39;Neo4j&#39;,...]
+     RETURN Cypher.features</code></pre>
+<p><a href="https://www.arangodb.com/wp-content/uploads/2016/05/shell-reference-card.pdf">AQL</a>：ArangoDB自己定义的查询语言，由于是文档模型上设计的图模型因此很多语法都跟文档相关，有collection,document,edge的概念，文档的模式跟mongodb类似</p>
+<p>Orient SQL: 这个语法更接近SQL，但是也做了类似cypher的MATCH语法。</p>
+
+        </div>
+    </body>
+
+</html>
