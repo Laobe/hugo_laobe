@@ -4,7 +4,20 @@
 
 /* reset CSS */
 table {	
-    font-size: 100%;
+    font-size: 70%;
+    text-align: left;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table thead tr.navigation {}
+table thead tr.header {
+}
+table tbody tr.even {
+    background-color:#CCC;
+}
+table tbody tr.odd {
+    background-color:#FFF;
 }
 /* end reset CSS */
 

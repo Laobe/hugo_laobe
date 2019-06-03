@@ -21,13 +21,13 @@
 
 **其实还有一个titan也很热门，由于好几年没有更新了，所以就没有持续关注了。**
 
-|GraphDB|语言|模型|查询语言|数据引擎|
-|---|---|---|---|---|
-|arangodb|||||
-|neo4j|||||
-|orientdb|||||
-|agensgraph|||||
-|mongodb|||||
+GraphDB	    |查询语言	    	        |存储引擎	                                                |模型			    |开发语言
+---	        |---	                    |---	                                                    |---	            |---
+Arangodb	|AQL	                    |rocksdb\mmfiles	                                        |multi-model	    |c++
+neo4j	    |cypher	            	    |non-native graph storage                                   |graph	            |java
+orientdb	|OrientDB SQL	    	    |plocal Paginated Local storage engine	                    |multi-model	    |java
+agensgraph	|ANSI-SQL and openCypher 	|postgre	        	                                    |multi-model	    |c
+mongodb	    |mongodb CRUD	            |WiredTiger Storage Engine\In-Memory Storage Engine\MMAPv1 	|document	        |c++
 
 #### 查询语言
 
