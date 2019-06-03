@@ -21,22 +21,19 @@
 
 **其实还有一个titan也很热门，由于好几年没有更新了，所以就没有持续关注了。**
 
-GraphDB	    |查询语言	    	        |存储引擎	                                                |模型			    |开发语言
----	        |---	                    |---	                                                    |---	            |---
-Arangodb	|AQL	                    |rocksdb\mmfiles	                                        |multi-model	    |c++
-neo4j	    |cypher	            	    |non-native graph storage                                   |graph	            |java
-orientdb	|OrientDB SQL	    	    |plocal Paginated Local storage engine	                    |multi-model	    |java
-agensgraph	|ANSI-SQL and openCypher 	|postgre	        	                                    |multi-model	    |c
-mongodb	    |mongodb CRUD	            |WiredTiger Storage Engine\In-Memory Storage Engine\MMAPv1 	|document	        |c++
+GraphDB	    |查询语言	    	        |存储引擎	                               |模型			                |开发语言
+---	        |---	                    |---	                                   |---	                            |---
+Arangodb	|AQL	                    |rocksdb,mmfiles	                       |Graph,Document,Key-value	    |c++
+neo4j	    |cypher	            	    |non-native graph storage                  |Graph	                        |java
+orientdb	|OrientDB SQL	    	    |plocal Paginated Local storage engine	   |Graph,Document,Key-value	    |java
+agensgraph	|ANSI-SQL and openCypher 	|postgre	        	                   |Graph,Relational	            |c
+mongodb	    |mongodb CRUD	            |WiredTiger,In-Memory,MMAPv1 	           |Document	                    |c++
 
 #### 查询语言
 
 [AQL](https://www.arangodb.com/wp-content/uploads/2016/05/shell-reference-card.pdf)：ArangoDB自己定义的查询语言，由于是文档模型上设计的图模型因此很多语法都跟文档相关，有collection,document,edge的概念，文档的模式跟mongodb类似
 
-Orient SQL: 这个语法更接近SQL，但是也做了类似cypher的MATCH语法。 
 [Cypher](http://www.opencypher.org): neo4j定义出来的一个想要成为图数据库标准的图模型描述语言，现在也比较受业界认可，除了neo4j之外，agensgraph也是在PostgreSQL是实现了cypher语法，另外也和databricks合作，将cypher在spark上集成了。
-
-下面这是在cypher官网截的一个cypher查询语句：
 
 ```
      MATCH (d:Database)-[:USES]->(Cypher)-[:QUERIES]->(:Model:Graph)
@@ -44,6 +41,7 @@ Orient SQL: 这个语法更接近SQL，但是也做了类似cypher的MATCH语法
      RETURN Cypher.features
 ```
 
+Orient SQL: 这个语法更接近SQL，但是也做了类似cypher的MATCH语法。 
 
 ```
     SELECT name, out('ACTS').title FROM Person WHERE name = 'Robin'

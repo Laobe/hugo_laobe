@@ -1,27 +1,20 @@
 <html>
-    <head>
-
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=0.5">
-
-        <link href="./main.css" rel="stylesheet" type="text/css">
-        <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
-        <link rel="shortcut icon" href="http://www.yinwang.org/images/Yc.jpg">
-
-        <title>机器学习与逻辑编程</title>
-
-    </head>
-
-    <body>
-        <script>
-            if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
-            {
-               document.body.classList.add('mobile');
-            }
-        </script>
-
-
-        <div class="inner">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.5">
+<link href="./main.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed">
+<link rel="shortcut icon" href="http://www.yinwang.org/images/Yc.jpg">
+<title>GraphDB语法初见</title>
+</head>
+<body>
+<script>
+if (/mobile/i.test(navigator.userAgent) || /android/i.test(navigator.userAgent))
+{
+   document.body.classList.add('mobile');
+}
+</script>
+<div class="inner">
 <h2 id="graphdb语法初见">GraphDB语法初见</h2>
 <p>之前一直有在关注arangodb的开发进程，现在看到arangodb出了一份<a href="https://www.arangodb.com/2018/02/nosql-performance-benchmark-2018-mongodb-postgresql-orientdb-neo4j-arangodb/">各个图数据库的对比测试</a>。自己本来对图数据库也很感兴趣，在reddit上看到了<a href="">对这个测试的讨论</a>。自己本来对图数据库也很感兴趣，就想要参考这个测试自己来做一些深入的学习和研究。</p>
 <p>现在先对图数据库进行一些基本的了解和认知。</p>
@@ -60,47 +53,47 @@
 <tr class="odd">
 <td>Arangodb</td>
 <td>AQL</td>
-<td>rocksdb</td>
-<td>multi-model</td>
+<td>rocksdb,mmfiles</td>
+<td>Graph,Document,Key-value</td>
 <td>c++</td>
 </tr>
 <tr class="even">
 <td>neo4j</td>
 <td>cypher</td>
 <td>non-native graph storage</td>
-<td>graph</td>
+<td>Graph</td>
 <td>java</td>
 </tr>
 <tr class="odd">
 <td>orientdb</td>
 <td>OrientDB SQL</td>
 <td>plocal Paginated Local storage engine</td>
-<td>multi-model</td>
+<td>Graph,Document,Key-value</td>
 <td>java</td>
 </tr>
 <tr class="even">
-<td>mongodb</td>
-<td>mongodb CRUD</td>
-<td>WiredTiger Storage Engine-Memory Storage Engine1</td>
-<td>document</td>
-<td>c++</td>
-</tr>
-<tr class="odd">
 <td>agensgraph</td>
 <td>ANSI-SQL and openCypher</td>
 <td>postgre</td>
-<td>multi-model</td>
+<td>Graph,Relational</td>
 <td>c</td>
+</tr>
+<tr class="odd">
+<td>mongodb</td>
+<td>mongodb CRUD</td>
+<td>WiredTiger,In-Memory,MMAPv1</td>
+<td>Document</td>
+<td>c++</td>
 </tr>
 </tbody>
 </table>
 <h4 id="查询语言">查询语言</h4>
 <p><a href="https://www.arangodb.com/wp-content/uploads/2016/05/shell-reference-card.pdf">AQL</a>：ArangoDB自己定义的查询语言，由于是文档模型上设计的图模型因此很多语法都跟文档相关，有collection,document,edge的概念，文档的模式跟mongodb类似</p>
-<p>Orient SQL: 这个语法更接近SQL，但是也做了类似cypher的MATCH语法。 <a href="http://www.opencypher.org">Cypher</a>: neo4j定义出来的一个想要成为图数据库标准的图模型描述语言，现在也比较受业界认可，除了neo4j之外，agensgraph也是在PostgreSQL是实现了cypher语法，另外也和databricks合作，将cypher在spark上集成了。</p>
-<p>下面这是在cypher官网截的一个cypher查询语句：</p>
+<p><a href="http://www.opencypher.org">Cypher</a>: neo4j定义出来的一个想要成为图数据库标准的图模型描述语言，现在也比较受业界认可，除了neo4j之外，agensgraph也是在PostgreSQL是实现了cypher语法，另外也和databricks合作，将cypher在spark上集成了。</p>
 <pre><code>     MATCH (d:Database)-[:USES]-&gt;(Cypher)-[:QUERIES]-&gt;(:Model:Graph)
      WHERE d.name IN [&#39;SAP HANA Graph&#39;,&#39;Redis&#39;,&#39;AgensGraph&#39;, &#39;Neo4j&#39;,...]
      RETURN Cypher.features</code></pre>
+<p>Orient SQL: 这个语法更接近SQL，但是也做了类似cypher的MATCH语法。</p>
 <pre><code>    SELECT name, out(&#39;ACTS&#39;).title FROM Person WHERE name = &#39;Robin&#39;
     MATCH {class:Person, as:actor, where:(name:&#39;Robin&#39;))-ACTS_IN-&gt; {as:movie}
     RETURN actor.name, movie.title</code></pre>
@@ -108,8 +101,6 @@
 <h4 id="存储引擎">存储引擎</h4>
 <p>ArangoDB使用了MMFiles和RocksDB两种存储引擎，RocksDB是在新的版本中添加进来，并且将此设为了默认存储引擎</p>
 <p>OrientDB</p>
-
-        </div>
-    </body>
-
+</div>
+</body>
 </html>
