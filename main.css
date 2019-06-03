@@ -2,7 +2,6 @@
     box-sizing: border-box;
 }
 
-/* reset CSS */
 table {	
     font-size: 70%;
     text-align: left;
@@ -11,15 +10,17 @@ table {
 }
 
 table thead tr.navigation {}
+
 table thead tr.header {
 }
+
 table tbody tr.even {
     background-color:#CCC;
 }
+
 table tbody tr.odd {
     background-color:#FFF;
 }
-/* end reset CSS */
 
 body {
     font-family:"lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
@@ -82,13 +83,12 @@ li {
 }
 
 
-blockquote {
-    border-left: 5px lightgrey solid;
-    padding-left: 15px;
-    margin-left: 20px;
-    background: #f4f4f4;
+blockquote{
+    border-left:5px dashed #ddd;
+    margin: 0px 0px 0px 20px;
+    padding:  20px 20px 20px 20px;
+    background: #F4F4F4;
 }
-
 
 pre {
     font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
