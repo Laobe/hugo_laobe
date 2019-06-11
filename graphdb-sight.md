@@ -1,5 +1,5 @@
 ## GraphDB语法初见
-之前一直有在关注arangodb的开发进程，现在看到arangodb出了一份[各个图数据库的对比测试](https://www.arangodb.com/2018/02/nosql-performance-benchmark-2018-mongodb-postgresql-orientdb-neo4j-arangodb/)。自己本来对图数据库也很感兴趣，在reddit上看到了[对这个测试的讨论]()。自己本来对图数据库也很感兴趣，就想要参考这个测试自己来做一些深入的学习和研究。
+之前一直有在关注arangodb的开发进程，现在看到arangodb出了一份[各个图数据库的对比测试](https://www.arangodb.com/2018/02/nosql-performance-benchmark-2018-mongodb-postgresql-orientdb-neo4j-arangodb/)。自己本来对图数据库也很感兴趣，在ycombinator上看到了[对这个测试的讨论](https://news.ycombinator.com/item?id=16375503)。自己本来对图数据库也很感兴趣，就想要参考这个测试自己来做一些深入的学习和研究。
 
 现在先对图数据库进行一些基本的了解和认知。
 
