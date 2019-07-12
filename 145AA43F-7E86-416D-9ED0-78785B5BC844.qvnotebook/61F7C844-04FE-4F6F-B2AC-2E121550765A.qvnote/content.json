@@ -1,0 +1,9 @@
+{
+  "title": "Linux文本处理：grep & sed",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div>**前言**</div><div>linux 上有很多很强大的文本处理工具可以配合使用，对于线上编辑，日志排查，文本处理，数据分析带来很大的便利。这里想要记录一些在 linux 上处理文本时的一些处理经验。</div><div><br></div><div>第二篇，grep &amp; sed 配合查询日志</div><div>linux的grep和sed可以用来对文本进行过滤和替换，我们可以通过这些对日志进行提炼，最后获得我们要看的日志进行分析</div><div>下面会通过两个最近使用的实例来讨论说明：</div><div><br></div><div>**场景一**</div><div>需求描述： 之前发现线上某个redis在某一个是cpu上升，初步判断可能被某台机器的临时任务导致，需要先发现该redis当前所有连接的客户端机器（说明redis中有client list 指令）可以展示当前机器连接情况）</div><div>![2039fbe3b5b04efc9c1667df0e4f0066_image.png](http://tech.yuceyi.com/upload/2039fbe3b5b04efc9c1667df0e4f0066_image.png)&nbsp;</div><div>实现原理：如下图所示，因为程序中可能会开多个连接或者连接池，所以addr上会有相同的ip：不同的端口，我们现在需要的取出其中的addr，并且过滤出ip进行去重就可以看到当前连接的所有机器啦</div><div>```&nbsp;</div><div>redis-cli -h (redis_host) client list &nbsp;| awk '{print $2}' | grep -Eo '([0-9]+\\.){3}([0-9]+)' | sort -u</div><div>```</div><div>![d9af179f5be042d9abd76658921e5f5a_image.png](http://tech.yuceyi.com/upload/d9af179f5be042d9abd76658921e5f5a_image.png)&nbsp;</div><div>结果如上，命令分解，</div><div>1. redis-cli -h (redis_host) client list 在标准输出中执行client list将结果输出到标准终端</div><div>2. awk '{print $2}' 因为发现addr在第二块，所以可以先用awk把第二列打印出来（awk功能更强大会在下一篇中单独分析）</div><div>3. 打印出来的结果为类似 addr=172.31.27.182:35743 这样的结果通过 grep -Eo 用正则去提取其中的ip，grep -o是取出完全匹配的字符串而不是整行，这里用的的正则相对比较粗糙是（提取三个数字加点的组合，再单独加最后一段数字拼成IP）不过已经能满足当前的需求</div><div>4. sort -u 排序后进行去重，就得到所有唯一的IP了。</div><div><br></div><div>**场景二**</div><div><br></div><div><br></div><div><br></div>"
+    }
+  ]
+}
