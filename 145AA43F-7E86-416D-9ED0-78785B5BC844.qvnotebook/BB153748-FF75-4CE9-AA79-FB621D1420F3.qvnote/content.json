@@ -1,0 +1,21 @@
+{
+  "title": "GraphDB后端存储",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "### rocksdb (ArangoDB)\nArangoDB在3.4版本，将默认存储引擎改成了RocksDB，由于RocksDB\n\nneo4j native graph storage\n\npostgres\n\nJanusGraph后端提供了很多存储引擎的接口，包括了cassandra，hbase，bigtable和BerkeleyDB等，由于\ncassandra"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}
