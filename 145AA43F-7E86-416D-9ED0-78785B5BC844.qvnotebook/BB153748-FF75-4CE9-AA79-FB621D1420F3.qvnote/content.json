@@ -3,7 +3,7 @@
   "cells": [
     {
       "type": "markdown",
-      "data": "### rocksdb (ArangoDB)\nArangoDB在3.4版本，将默认存储引擎改成了RocksDB，由于RocksDB\n\nneo4j native graph storage\n\npostgres\n\nJanusGraph后端提供了很多存储引擎的接口，包括了cassandra，hbase，bigtable和BerkeleyDB等，由于\ncassandra"
+      "data": "对于数据库来说，存储后端的设计对于使用者来说是黑盒的，但是又是不可不关注和深入理解的核心。存储引擎的设计觉得着数据库的性能和数据库的使用场景。图数据库中涉及到很多关系的查找，对存储引擎的设计提高了要求。\n\n### rocksdb (ArangoDB)\nArangoDB在3.4版本，将默认存储引擎改成了RocksDB，由于RocksDB\n\n### native graph storage (neo4j)\nneo4j的最大特点就是图原生数据库，因此在存储上也是针对图模型做的存储设计。\n\n### cassandra (JanusGraph)\nJanusGraph后端提供了很多存储引擎的接口，包括了cassandra，hbase，bigtable和BerkeleyDB等。其中cassandra是最近很火热的，面对分布式场景的一个新型的数据存储。\n\n### postgres (AgensGraph)\nAgensGraph是一个postgres的分支，因此本身的存储是完全建立在postgres上的。\n"
     },
     {
       "type": "text",
